@@ -26,6 +26,9 @@ public class LoginPage extends PageObject {
     @FindBy(xpath = "//button[normalize-space()='Iniciar sesión con contraseña']")
     private WebElementFacade loginWithPasswordButton;
 
+    @FindBy(xpath = "//*[text()='Web Player']")
+    private WebElementFacade continueToWebPlayer;
+
 
     // PANTALLA 3: CONTRASEÑA
 
@@ -71,4 +74,11 @@ public class LoginPage extends PageObject {
     public boolean isInvalidPasswordErrorVisible() {
         return invalidPasswordError.waitUntilVisible().isDisplayed();
     }
+
+    public void clickContinueToWebPlayer() {
+        waitFor(continueToWebPlayer);
+        continueToWebPlayer.click();
+    }
+
+
 }

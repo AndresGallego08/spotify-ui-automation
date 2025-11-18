@@ -1,116 +1,229 @@
-# Automatización Spotify Web - Serenity BDD, Selenium, Cucumber
+# 🎵 Automatización Spotify Web – Serenity BDD, Selenium WebDriver y Cucumber
 
-## 1. Instrucciones de instalación y ejecución
+Este proyecto automatiza flujos clave de la aplicación **Spotify Web** utilizando  
+**Java + Serenity BDD + Selenium + Cucumber**, siguiendo buenas prácticas de automatización, Page Object Model y estructura estándar de Serenity.
 
-### 1.1 Requisitos previos
+El objetivo principal es validar la autenticación, búsqueda y navegación de playlists dentro de la plataforma.
 
-- JDK 11 instalado (por ejemplo 11.0.23).
-- Gradle 7+ o uso del wrapper `./gradlew`.
-- Navegador Google Chrome instalado.
-- Acceso a una cuenta válida de Spotify (gratuita o de prueba).
+---
 
-### 1.2 Clonar el proyecto
+# 📌 1. Tecnologías Utilizadas
 
-```bash
-git clone https://github.com/AndresGallego08/spotify-ui-automation.git
-cd spotify-automation
+- **Java:** 11.0.23 LTS  
+- **Gradle:** 7+ (uso del wrapper incluido `./gradlew`)  
+- **Serenity BDD** (Core + JUnit + Cucumber)  
+- **Selenium WebDriver**  
+- **Cucumber (Gherkin)**  
+- **Gestión automática de drivers** con `webdriver.autodownload=true`  
+- Ejecuciones en:
+  - Google Chrome
+  - Chrome Headless (para CI)
+
+---
+
+# 📁 2. Estructura del Proyecto
+
+```
+spotify-automation/
+├── src/
+│   ├── main/java/   # (vacío – no se usa en UI Testing)
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── com.castor.spotify/
+│   │   │   │   ├── pages/          # Page Objects: LoginPage, SearchPage, BrowsePlaylistsPage
+│   │   │   │   ├── steps/          # Step Definitions por cada funcionalidad
+│   │   │   │   ├── runners/        # Runner central con Serenity + Cucumber
+│   │   ├── resources/
+│   │   │   ├── features/spotify/   # Features en Gherkin
+│   │   │   │   ├── login.feature
+│   │   │   │   ├── search_music.feature
+│   │   │   │   ├── browse_playlists.feature
+│   │   │   ├── serenity.properties
+├── build.gradle
+├── serenity.properties
+├── gradlew / gradlew.bat
+├── .gitignore
+└── README.md
 ```
 
-### 1.3 Configuración de credenciales
+---
 
-Las credenciales se gestionan mediante propiedades de Serenity.
+# 🔐 3. Configuración de Credenciales
 
-Por defecto se encuentran en `serenity.properties`:
+El proyecto usa variables en **serenity.properties**:
 
 ```properties
-spotify.user.email=spotify.castor.ag@gmail.com
-spotify.user.password=Castor2025*
+spotify.user.email=tu_correo@dominio.com
+spotify.user.password=tu_password
+webdriver.autodownload=true
 ```
 
-Se recomienda sobrescribirlas al ejecutar las pruebas:
+Puedes sobrescribirlas en ejecución:
 
 ```bash
-./gradlew clean test aggregate \
-  -Dspotify.user.email=tu_correo@dominio.com \
-  -Dspotify.user.password=tu_clave_real
+./gradlew clean test aggregate   -Dspotify.user.email=miusuario@correo.com   -Dspotify.user.password=miclave
 ```
 
 ---
 
-## 2. Dependencias necesarias
+# ▶️ 4. Ejecución Local
 
-Las dependencias principales se definen en `build.gradle`:
+## 4.1 Desde la terminal
 
-- Java 11
-- Serenity BDD  
-  - `serenity-core`  
-  - `serenity-junit`  
-  - `serenity-cucumber`
-- Selenium WebDriver (incluido a través de Serenity).
-- Cucumber JVM para la definición de escenarios en Gherkin.
-- JUnit 4 como framework de ejecución.
-- Gestión automática de drivers mediante la propiedad `webdriver.autodownload=true`.
-
----
-
-## 3. Comandos para ejecutar las pruebas y generar reportes
-
-Ejecutar todos los escenarios y generar el reporte de Serenity:
+Ejecutar todos los escenarios:
 
 ```bash
 ./gradlew clean test aggregate
 ```
 
-El comando realiza:
-
-- Compilación del proyecto.
-- Ejecución de las pruebas automatizadas.
-- Generación del reporte HTML consolidado de Serenity en `target/site/serenity`.
-
-También se pueden ejecutar solo pruebas con determinados tags, por ejemplo:
+Ejecutar solo smoke tests:
 
 ```bash
 ./gradlew clean test aggregate -Dcucumber.filter.tags="@smoke"
 ```
 
+Ejecutar solo login:
+
+```bash
+./gradlew clean test aggregate -Dcucumber.filter.tags="@login"
+```
+
 ---
 
-## 4. Ejemplo de interpretación del reporte de resultados
+## 4.2 Desde IntelliJ IDEA
 
-Una vez finalizada la ejecución, abrir el archivo:
+1. Abrir `SpotifyTestSuite.java` en la carpeta `runners/`
+2. Clic derecho → **Run 'SpotifyTestSuite'**
 
-```text
+---
+
+## 🖥 4.3 Ejecución en modo headless
+
+Agregar en `serenity.properties`:
+
+```properties
+serenity.browser.headless=true
+chrome.switches=--no-sandbox,--disable-gpu,--disable-dev-shm-usage,--window-size=1920,1080
+```
+
+---
+
+# 📊 5. Reportes de Ejecución
+
+Serenity genera el reporte en:
+
+```
 target/site/serenity/index.html
 ```
 
-En el reporte se visualiza:
+Para verlo:
 
-- Resumen general de la ejecución: cantidad de tests ejecutados, pasados y fallados.
-- Listado de features y escenarios con su estado (success, failure, pending).
-- Detalle por escenario, incluyendo:
-  - Pasos ejecutados con su resultado.
-  - Capturas de pantalla en los pasos marcados según la configuración.
-  - Tiempos de ejecución.
-
-Este reporte permite:
-
-- Ver rápidamente qué escenarios fallaron y en qué paso.
-- Identificar tiempos de respuesta y posibles problemas de estabilidad.
-- Contar con evidencia clara de la ejecución para el equipo.
+1. Abrir el archivo en un navegador  
+2. Podrás visualizar:
+   - Resumen de pruebas
+   - Escenarios ejecutados
+   - Pasos con screenshots
+   - Tiempos de ejecución
+   - Errores detallados
 
 ---
 
-## 5. Organización del proyecto y buenas prácticas
+# ☁️ 6. CI/CD – Pipeline GitHub Actions
 
-- **Page Object Model (POM)**  
-  - `LoginPage`, `HomePage` y `BrowsePage` encapsulan la interacción con la interfaz de usuario.
-- **Scripts modulares y reutilizables**  
-  - Steps separados por funcionalidad (`LoginSteps`, `SearchSteps`, `BrowsePlaylistsSteps`).
-  - Precondiciones reutilizadas mediante steps compartidos y `Background` cuando aplica.
-- **Uso de esperas explícitas**  
-  - Uso de `waitFor()` y `waitUntilVisible()` en los Page Objects en lugar de esperas fijas.
-- **Estructura estándar Serenity-Cucumber**  
-  - Features bajo `src/test/resources/features`.
-  - Steps y Pages bajo `src/test/java`.
-  - Runner central `SpotifyTestSuite.java`.
+Este proyecto incluye un pipeline para ejecutar pruebas automáticamente en GitHub Actions.
 
+## 6.1 Ubicación del workflow
+
+```
+.github/workflows/run-serenity-tests.yml
+```
+
+## 6.2 Workflow utilizado
+
+```yaml
+name: Run Serenity Tests
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Grant execute permissions to Gradle Wrapper
+        run: chmod +x ./gradlew
+
+      - name: Run Serenity Tests
+        run: ./gradlew clean test aggregate
+
+      - name: Upload Serenity Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: serenity-report
+          path: target/site/serenity/
+          retention-days: 30
+```
+
+---
+
+# 📥 6.3 ¿Cómo ejecutar el workflow manualmente?
+
+1. Ir a **Actions** en el repositorio  
+2. Seleccionar el workflow **Run Serenity Tests**  
+3. Clic en **Run workflow**  
+4. Esperar la ejecución  
+5. Descargar el reporte
+
+---
+
+# 📤 6.4 ¿Cómo descargar el reporte desde GitHub Actions?
+
+1. Ir a **Actions**  
+2. Abrir la última ejecución  
+3. Buscar el job `test`  
+4. Abrir **Upload Serenity Report**  
+5. Clic en **Download artifact**  
+6. Descomprimir  
+7. Abrir:
+
+```
+index.html
+```
+
+---
+
+# 🧱 7. Buenas Prácticas del Proyecto
+
+- Page Object Model (POM) limpio y escalable  
+- Steps separados por funcionalidad  
+- Uso obligatorio de esperas explícitas (`waitFor`, `waitUntilVisible`)  
+- Background utilizado únicamente cuando aplica  
+- Features en español, claros y reutilizables  
+- Sin datos quemados en el código  
+- Locators dinámicos para playlists y búsquedas  
+- Código organizado por capas (Pages, Steps, Runner)
+
+---
+
+# 📞 8. Contacto
+
+Para dudas o mejoras, puedes abrir un **Issue** o realizar un **Pull Request** directamente en el repositorio.
+
+---
+
+Gracias por usar este framework ✨

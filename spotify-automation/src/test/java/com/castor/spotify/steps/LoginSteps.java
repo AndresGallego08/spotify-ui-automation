@@ -81,6 +81,7 @@ public class LoginSteps {
         loginPage.clickLoginWithPassword();
         loginPage.enterPassword(getValidPassword());
         loginPage.clickContinue();
+        loginPage.clickContinueToWebPlayer();
     }
 
     @Entonces("debería visualizar la página principal de Spotify Web")
