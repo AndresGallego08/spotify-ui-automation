@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class Navegación a playlists populares</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class Navegación a playlists populares</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/default-package.html">default-package</a> &gt; Navegación a playlists populares</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">22.400s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+<li>
+<a href="#tab3">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="Ver Top 50 Global en Top listas"></a>
+<h3 class="failures">Ver Top 50 Global en Top listas</h3>
+<span class="code">
+<pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for net.serenitybdd.core.pages.RenderedPageObjectView$$Lambda$762/0x00000001005edc40@69c1ea07 (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.23'
+Driver info: driver.version: unknown
+	at app//net.thucydides.core.scheduling.ThucydidesFluentWait.timeoutException(ThucydidesFluentWait.java:152)
+	at app//net.thucydides.core.scheduling.ThucydidesFluentWait.until(ThucydidesFluentWait.java:82)
+	at app//net.serenitybdd.core.pages.RenderedPageObjectView.waitForElement(RenderedPageObjectView.java:139)
+	at app//net.serenitybdd.core.pages.RenderedPageObjectView.waitFor(RenderedPageObjectView.java:130)
+	at app//net.serenitybdd.core.pages.PageObject.waitFor(PageObject.java:1421)
+	at app//com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.waitFor$accessor$F2e4nIUK(Unknown Source)
+	at java.base@11.0.23/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.23/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.23/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.23/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:522)
+	at app//net.thucydides.core.steps.StepInterceptor.runBaseObjectMethod(StepInterceptor.java:414)
+	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:86)
+	at app//net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at app//com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.waitFor(Unknown Source)
+	at app//com.castor.spotify.pages.LoginPage.clickLoginWithPassword(LoginPage.java:63)
+	at app//com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.clickLoginWithPassword$accessor$F2e4nIUK(Unknown Source)
+	at java.base@11.0.23/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@11.0.23/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@11.0.23/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@11.0.23/java.lang.reflect.Method.invoke(Method.java:566)
+	at app//net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
+	at app//net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
+	at app//net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:423)
+	at app//net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:195)
+	at app//net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:88)
+	at app//net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at app//com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.clickLoginWithPassword(Unknown Source)
+	at app//com.castor.spotify.steps.LoginSteps.ingreso_mis_credenciales_validas(LoginSteps.java:81)
+	at ✽.ingreso mis credenciales válidas(file:///C:/spotify-ui-automation/spotify-automation/src/test/resources/features/spotify/browse_playlists.feature:11)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">Ver Top 50 Global en Top listas</td>
+<td class="failures">22.400s</td>
+<td class="failures">failed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>
+@playlists @smoke
+Escenario: Ver Top 50 Global en Top listas                                               ?[90m# src/test/resources/features/spotify/browse_playlists.feature:14?[0m
+  ?[32mDado ?[0m?[32mque estoy en la página de login de Spotify Web?[0m                                    ?[90m# com.castor.spotify.steps.LoginSteps.que_estoy_en_la_pagina_de_login()?[0m
+  ?[31mCuando ?[0m?[31mingreso mis credenciales válidas?[0m                                                ?[90m# com.castor.spotify.steps.LoginSteps.ingreso_mis_credenciales_validas()?[0m
+      ?[31morg.openqa.selenium.TimeoutException: Expected condition failed: waiting for net.serenitybdd.core.pages.RenderedPageObjectView$$Lambda$762/0x00000001005edc40@69c1ea07 (tried for 5 second(s) with 50 milliseconds interval)
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.23'
+Driver info: driver.version: unknown
+	at net.thucydides.core.scheduling.ThucydidesFluentWait.timeoutException(ThucydidesFluentWait.java:152)
+	at net.thucydides.core.scheduling.ThucydidesFluentWait.until(ThucydidesFluentWait.java:82)
+	at net.serenitybdd.core.pages.RenderedPageObjectView.waitForElement(RenderedPageObjectView.java:139)
+	at net.serenitybdd.core.pages.RenderedPageObjectView.waitFor(RenderedPageObjectView.java:130)
+	at net.serenitybdd.core.pages.PageObject.waitFor(PageObject.java:1421)
+	at com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.waitFor$accessor$F2e4nIUK(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:522)
+	at net.thucydides.core.steps.StepInterceptor.runBaseObjectMethod(StepInterceptor.java:414)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:86)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.waitFor(Unknown Source)
+	at com.castor.spotify.pages.LoginPage.clickLoginWithPassword(LoginPage.java:63)
+	at com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.clickLoginWithPassword$accessor$F2e4nIUK(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)
+	at net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)
+	at net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:423)
+	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:195)
+	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:88)
+	at net.thucydides.core.steps.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:51)
+	at com.castor.spotify.pages.LoginPage$ByteBuddy$BuDJJNMH.clickLoginWithPassword(Unknown Source)
+	at com.castor.spotify.steps.LoginSteps.ingreso_mis_credenciales_validas(LoginSteps.java:81)
+	at ✽.ingreso mis credenciales válidas(file:///C:/spotify-ui-automation/spotify-automation/src/test/resources/features/spotify/browse_playlists.feature:11)
+?[0m
+  ?[36mCuando ?[0m?[36mnavego a la sección ?[0m?[36m?[1m&quot;Listas seleccionadas&quot;?[0m                                      ?[90m# com.castor.spotify.steps.BrowsePlaylistsSteps.navego_a_la_seccion(java.lang.String)?[0m
+  ?[36mEntonces ?[0m?[36mdebería visualizar playlists públicas como ?[0m?[36m?[1m&quot;Canciones más escuchadas: Global&quot;?[0m ?[90m# com.castor.spotify.steps.BrowsePlaylistsSteps.deberia_visualizar_playlists_publicas_como(java.lang.String)?[0m
+</pre>
+</span>
+</div>
+<div id="tab3" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>nov. 18, 2025 4:03:49 P. M. org.openqa.selenium.remote.service.DriverService$Builder getLogOutput
+INFO: Driver logs no longer sent to console by default; https://www.selenium.dev/documentation/webdriver/drivers/service/#setting-log-output
+nov. 18, 2025 4:03:51 P. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 142
+nov. 18, 2025 4:03:51 P. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$4
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.10.0` where the version (&quot;v86&quot;) matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.10</a> at 18/11/2025, 4:04:10 p. m.</p>
+</div>
+</div>
+</body>
+</html>

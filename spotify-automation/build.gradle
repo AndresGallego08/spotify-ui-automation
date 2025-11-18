@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group = 'com.castor.spotify'
+version = '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityVersion = '3.9.8'      // <-- cambiar 4.3.4 por 3.9.8
+    junitVersion    = '4.13.2'
+    cucumberVersion = '7.18.1'
+}
+
+dependencies {
+    testImplementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
+    testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
+
+    testImplementation "junit:junit:${junitVersion}"
+
+    testImplementation "io.github.bonigarcia:webdrivermanager:5.8.0"
+}
+
+test {
+    useJUnit()
+    systemProperties System.getProperties()
+}
